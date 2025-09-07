@@ -28,6 +28,8 @@ The lab environment consists of **servers, workstations, and security tools** de
 
 ### Host System
 - **Host OS**: Windows 11
+- **CPU**: i7 (10 Cores)
+- **RAM**: 16GB
 - **Hypervisor**: VirtualBox
 - **Storage**: 1TB external hard drive dedicated to VM storage
 
