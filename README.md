@@ -134,6 +134,3 @@ This virtual lab is designed to support multiple cybersecurity objectives and ha
 - [MailHog GitHub](https://github.com/mailhog/MailHog)  
 - [Kali Linux Tools](https://www.kali.org/tools/)  
 - [SecLists GitHub](https://github.com/danielmiessler/SecLists)  
-
-
-
