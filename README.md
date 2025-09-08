@@ -16,6 +16,7 @@ By creating a controlled environment, I can practice defending against real-worl
 
 ## Architecture / Topology
 The lab environment consists of **servers, workstations, and security tools** deployed across virtual machines. It mimics a corporate infrastructure where employees, IT assets, and attackers interact in the same network.
+
 ![Topology Overview](docs/Virtual Home Lab Diagram.png)
 ### Network Components
 
