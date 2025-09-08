@@ -1,93 +1,138 @@
+
+
+---
+
 # Virtual Home Cybersecurity Lab
 
 ## Overview
-This project simulates a small-to-medium business (SMB) network environment, combining both offensive and defensive cybersecurity tools. The lab is designed to provide hands-on experience in system administration, endpoint security, intrusion detection, log analysis, incident response, and penetration testing. By creating a controlled environment, I can practice defending against real-world attacks while also exploring offensive tradecraft.
+
+This project simulates a small-to-medium business (SMB) network environment, combining both **offensive** and **defensive** cybersecurity tools. The lab provides hands-on experience in system administration, endpoint security, intrusion detection, log analysis, incident response, and penetration testing. By creating a controlled environment, I can practice defending against real-world attacks while also exploring offensive tradecraft.
 
 ---
 
 ## Architecture / Topology
+
 The lab environment consists of **servers, workstations, and security tools** deployed across virtual machines. It mimics a corporate infrastructure with employees, IT assets, and attackers interacting in the same network.
 
-**Network Components:**
-- **Workstations**
-  - Employee Workstation (Windows 11 Enterprise, Wazuh Agent)
-  - Employee Workstation (Ubuntu Desktop, Wazuh Agent)
-  - Security Workstation (Security Onion)
-  - Attacker Machine (Kali Linux)
+**Network Components**
 
-- **Servers**
-  - Domain Controller / Active Directory (Windows Server 2025, Wazuh Agent)
-  - Corporate Email Server (Ubuntu Desktop with MailHog + Docker)
-  - Security Server (Ubuntu Server with Wazuh XDR & SIEM)
+* **Workstations**
 
-> **[Diagram Placeholder]** – A network diagram illustrating the above components and their interconnections.
+  * Windows 11 Enterprise (with Wazuh Agent)
+  * Ubuntu Desktop (with Wazuh Agent)
+  * Security Onion (dedicated monitoring workstation)
+  * Kali Linux (attacker machine)
+
+* **Servers**
+
+  * Windows Server 2025 – Domain Controller / Active Directory (with Wazuh Agent)
+  * Ubuntu Desktop – Corporate Email Server (MailHog + Docker)
+  * Ubuntu Server – Security Server (Wazuh XDR & SIEM)
+
+---
+
+## Diagrams
+
+To make the architecture easier to understand, diagrams are provided to show different perspectives of the lab.
+
+### 1. Topology Overview
+
+High-level network diagram of servers, workstations, and attacker machine.
+![Topology Overview](docs/topology.png)
+
+### 2. Operating Systems
+
+Visual breakdown of which operating systems are running on each node.
+![Operating Systems](docs/operating-systems.png)
+
+### 3. Process Flow
+
+Example: Wazuh SIEM workflow from **workstation agent → security server → alert notification**.
+![Process Flow](docs/wazuh-flow.png)
+
+> 📌 *All diagrams are located in the `/docs` folder.*
 
 ---
 
 ## Environment & Tools
 
 ### Host System
-- **Host OS**: Windows 11
-- **CPU**: i7 (10 Cores)
-- **RAM**: 16GB
-- **Hypervisor**: VirtualBox
-- **Storage**: 1TB external hard drive dedicated to VM storage
 
-### Enterprise Tools & Defense
-- **Microsoft Active Directory** – Directory service for managing network resources, users, and permissions in a Windows domain environment.
-- **Wazuh** – Open-source SIEM and XDR for intrusion detection, vulnerability management, compliance reporting, and log analysis.
-- **MailHog** – Lightweight email testing tool acting as a fake SMTP server, used to simulate enterprise mail flow and capture test messages.
+* **OS**: Windows 11
+* **CPU**: Intel i7 (10 cores)
+* **RAM**: 16GB
+* **Storage**: 1TB external SSD (VM storage)
+* **Hypervisor**: VirtualBox
+
+### Defensive Tools
+
+* **Microsoft Active Directory** – Centralized authentication and access control.
+* **Wazuh (XDR & SIEM)** – Intrusion detection, log collection, vulnerability management.
+* **Security Onion** – Network security monitoring with Elastic Stack.
+* **MailHog** – Lightweight SMTP testing tool to simulate enterprise mail flow.
 
 ### Offensive Tools
-- **Evil-WinRM** – Post-exploitation WinRM client for interacting with Windows systems.
-- **Hydra** – High-speed brute-force tool for testing authentication on multiple network protocols.
-- **SecLists** – Extensive collection of penetration testing wordlists for reconnaissance and exploitation.
-- **NetExec** – Lateral movement and remote command execution tool leveraging multiple protocols.
-- **XFreeRDP** – Open-source Remote Desktop Protocol (RDP) client for post-exploitation access to Windows systems.
+
+* **Hydra** – Brute-force testing on multiple protocols.
+* **Evil-WinRM** – Post-exploitation tool for Windows systems.
+* **NetExec** – Lateral movement and remote command execution.
+* **SecLists** – Collection of wordlists for reconnaissance and exploitation.
+* **XFreeRDP** – Open-source RDP client for post-exploitation access.
 
 ---
 
 ## Setup Instructions
-1. Install VirtualBox on Windows 11.
-2. Provision virtual machines stored on the 1TB external hard drive to ensure adequate space and performance.
-3. Configure a private NAT/Host-only network to simulate an isolated corporate LAN.
-4. Install and configure the following:
-   - Windows Server 2025: Promote to Domain Controller and configure Active Directory.
-   - Windows 11 Enterprise: Join to the domain; install Wazuh Agent.
-   - Ubuntu Desktop: Install Wazuh Agent; set up Docker + MailHog.
-   - Ubuntu Server: Deploy Wazuh SIEM/XDR server.
-   - Security Onion: Configure sensors and Elastic Stack for monitoring.
-   - Kali Linux: Install attack tools (Hydra, Evil-WinRM, SecLists, NetExec, XFreeRDP).
-5. Integrate logging and monitoring with Wazuh & Security Onion.
-6. Validate functionality by simulating attacks and verifying detection.
+
+1. Install **VirtualBox** on the Windows 11 host.
+2. Create virtual machines on the external SSD to optimize performance.
+3. Configure a **NAT/Host-only private network** to simulate an isolated LAN.
+4. Provision VMs:
+
+   * Windows Server 2025 – Configure AD DS and promote to Domain Controller.
+   * Windows 11 Enterprise – Join to domain; install Wazuh Agent.
+   * Ubuntu Desktop – Install Wazuh Agent; deploy MailHog via Docker.
+   * Ubuntu Server – Deploy Wazuh SIEM/XDR.
+   * Security Onion – Configure sensors and Elastic Stack.
+   * Kali Linux – Install Hydra, Evil-WinRM, NetExec, SecLists, and XFreeRDP.
+5. Integrate logging with **Wazuh** and **Security Onion**.
+6. Validate the environment by simulating attacks and verifying detections.
 
 ---
 
 ## Use Cases & Skills Learned
-- **Blue Team Skills**
-  - Active Directory administration and domain hardening.
-  - Deploying and managing Wazuh for SIEM/XDR functions.
-  - Email server simulation and log monitoring with MailHog.
-  - Incident detection, log correlation, and alert triage with Security Onion.
 
-- **Red Team Skills**
-  - Brute-force and credential testing with Hydra.
-  - Lateral movement and privilege escalation with NetExec & Evil-WinRM.
-  - Exploitation and reconnaissance using SecLists and RDP (XFreeRDP).
+**Blue Team Skills**
+
+* Active Directory administration and hardening.
+* SIEM/XDR deployment with Wazuh.
+* Network and log monitoring with Security Onion.
+* Incident detection, correlation, and triage.
+
+**Red Team Skills**
+
+* Credential testing and brute-force (Hydra).
+* Post-exploitation and lateral movement (Evil-WinRM, NetExec).
+* Reconnaissance and exploitation with SecLists and RDP access.
 
 ---
 
 ## Future Improvements
-- Add pfSense or OPNsense as a firewall for realistic perimeter defense.
-- Expand with Splunk for log aggregation and SIEM comparison.
-- Introduce honeypots for threat emulation.
-- Automate lab deployment with Ansible or Terraform.
+
+* Add **pfSense/OPNsense** for perimeter firewalling.
+* Expand with **Splunk** for SIEM comparison.
+* Deploy **honeypots** to study attacker behavior.
+* Automate provisioning with **Ansible/Terraform**.
 
 ---
 
 ## References
-- [Wazuh Documentation](https://documentation.wazuh.com/)
-- [Security Onion Docs](https://securityonion.net/docs/)
-- [MailHog GitHub](https://github.com/mailhog/MailHog)
-- [Kali Linux Tools](https://www.kali.org/tools/)
-- [SecLists GitHub](https://github.com/danielmiessler/SecLists)
+
+* [Wazuh Documentation](https://documentation.wazuh.com/)
+* [Security Onion Docs](https://securityonion.net/docs/)
+* [MailHog GitHub](https://github.com/mailhog/MailHog)
+* [Kali Linux Tools](https://www.kali.org/tools/)
+* [SecLists GitHub](https://github.com/danielmiessler/SecLists)
+
+---
+
+
