@@ -148,24 +148,26 @@ This virtual lab supports **cybersecurity training, testing, and experimentation
 - Log correlation, alert triage, and traffic analysis in Security Onion  
 
 </details>
- 
 
 <details>
 <summary>Red Team Skills</summary>
-* Brute-force authentication testing with Hydra.  
-* Lateral movement and privilege escalation via NetExec & Evil-WinRM.  
-* Reconnaissance and exploitation with SecLists + RDP.  
+
+- Brute-force authentication testing with Hydra  
+- Lateral movement and privilege escalation via NetExec & Evil-WinRM  
+- Reconnaissance and exploitation with SecLists + RDP  
 
 </details>
 
 <details>
 <summary>Purple Team Skills</summary>
-* Map red team techniques to blue team detections (MITRE ATT&CK).  
-* Validate SIEM rules against simulated attacks.  
-* Improve log sources and detection coverage.  
-* Create a feedback loop between red and blue activities.  
-  
+
+- Map red team techniques to blue team detections (MITRE ATT&CK)  
+- Validate SIEM rules against simulated attacks  
+- Improve log sources and detection coverage  
+- Create a feedback loop between red and blue activities  
+
 </details>
+
 
 **Example Scenario:**  
 > Simulate brute-force logins from Kali → Detect failed logins in Wazuh → Tune alert rules in Security Onion.  
