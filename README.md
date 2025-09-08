@@ -1,8 +1,11 @@
 # Virtual Home Cybersecurity Lab
 
-[![Made with VirtualBox](https://img.shields.io/badge/VirtualBox-Lab-blue)](https://www.virtualbox.org/) 
-[![Security+ Certified](https://img.shields.io/badge/Certification-Security%2B-red)](https://www.comptia.org/certifications/security) 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+<p align="center">
+  <a href="https://www.virtualbox.org/"><img src="https://img.shields.io/badge/VirtualBox-Lab-blue"></a>
+  <a href="https://www.comptia.org/certifications/security"><img src="https://img.shields.io/badge/Certification-Security%2B-red"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green"></a>
+</p>
+
 
 ---
 
@@ -38,7 +41,7 @@ By creating a controlled environment, I can practice defending against real-worl
 The lab consists of **servers, workstations, and security tools** deployed across virtual machines. It mimics a corporate infrastructure with employees, IT assets, and attackers on the same network.
 
 ![Topology Overview](docs/Virtual_Home_Lab_Diagram.png)
-
+Figure 1 – Network topology for the virtual cybersecurity lab, showing servers, workstations, and attacker machine.
 ### Network Components
 
 **Workstations**
@@ -136,22 +139,33 @@ This virtual lab supports **cybersecurity training, testing, and experimentation
 * **Vulnerability Assessment** – Identify and validate weaknesses.  
 * **Incident Response** – Practice response procedures and log correlation.  
 
-### Blue Team Skills
-* Active Directory administration and domain hardening.  
-* Deploying and managing Wazuh SIEM/XDR.  
-* Email server simulation with MailHog.  
-* Log correlation, alert triage, and traffic analysis in Security Onion.  
+<details>
+<summary>Blue Team Skills</summary>
 
-### Red Team Skills
+- Active Directory administration and domain hardening  
+- Deploying and managing Wazuh SIEM/XDR  
+- Email server simulation with MailHog  
+- Log correlation, alert triage, and traffic analysis in Security Onion  
+
+</details>
+ 
+
+<details>
+<summary>Red Team Skills</summary>
 * Brute-force authentication testing with Hydra.  
 * Lateral movement and privilege escalation via NetExec & Evil-WinRM.  
 * Reconnaissance and exploitation with SecLists + RDP.  
 
-### Purple Team Skills
+</details>
+
+<details>
+<summary>Purple Team Skills</summary>
 * Map red team techniques to blue team detections (MITRE ATT&CK).  
 * Validate SIEM rules against simulated attacks.  
 * Improve log sources and detection coverage.  
 * Create a feedback loop between red and blue activities.  
+  
+</details>
 
 **Example Scenario:**  
 > Simulate brute-force logins from Kali → Detect failed logins in Wazuh → Tune alert rules in Security Onion.  
@@ -179,4 +193,6 @@ This virtual lab supports **cybersecurity training, testing, and experimentation
 * [Security Onion Docs](https://securityonion.net/docs/)  
 * [MailHog GitHub](https://github.com/mailhog/MailHog)  
 * [Kali Linux Tools](https://www.kali.org/tools/)  
-* [SecLists GitHub](https://github.com/danielmiessler/SecLists)  
+* [SecLists GitHub](https://github.com/danielmiessler/SecLists)
+* [Active Directory Docs](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
+* [VirtualBox Manual](https://www.virtualbox.org/manual/UserManual.html)
