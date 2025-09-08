@@ -215,4 +215,6 @@ This virtual lab supports **cybersecurity training, testing, and experimentation
 ```
 
 ---
+
+Do you also want me to add a **fallback ASCII diagram** for your topology (for viewers where Mermaid diagrams don’t render, like on some GitHub mobile apps)?
 ```
